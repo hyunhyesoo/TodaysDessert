@@ -1,0 +1,191 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Pretendard', sans-serif;
+    background-color: #fff;
+}
+
+/* 테마 섹션: 피그마 스타일의 카드 오버레이형 배경 구성 */
+.themeSection {
+    position: relative;
+    width: 100%;
+    min-height: 850px; /* 5개 카드가 2줄로 배치될 수 있도록 최소 높이 확보 */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* 카드 위치 하단으로 이동 */
+    padding: 60px 20px 80px 20px; /* 하단 패딩 확보 */
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* 가상 요소를 생성하여 배경 이미지 표시 (선명하게 유지) */
+.themeSection::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('../imgs/이달의테마.png') no-repeat center center;
+    background-size: cover;
+    /* 블러 제거하여 사진의 쨍한 색감과 디테일 살림 */
+    z-index: 1;
+}
+
+/* 중앙 화이트 카드 오버레이 */
+.themeOverlay {
+    position: relative;
+    z-index: 2; /* 블러 배경보다 위에 배치 */
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px 30px;
+    border-radius: 20px;
+    max-width: 900px; /* 피그마에 최적화된 너비 */
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(255, 123, 123, 0.35); /* 피그마의 핑크 테두리 반영 */
+    box-sizing: border-box;
+}
+
+.themeOverlay h2 {
+    font-size: 38px;
+    color: #222;
+    margin-bottom: 30px;
+    line-height: 1.3;
+    font-weight: bold;
+}
+
+/* 디저트 카드 목록: Flex를 이용하여 피그마처럼 첫째 줄 3개 / 둘째 줄 2개 자동 정렬 및 가운데 정렬 */
+.dessertCards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.dessertCard {
+    background-color: #fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px; /* 피그마와 일치하는 네모난 느낌 */
+    width: 220px;
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 10px;
+    box-sizing: border-box;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.dessertCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* 카드 내 이미지 컨테이너 (정사각형 박스 안에서 이미지가 온전히 보여 왜곡이나 잘림 방지) */
+.dessertCard img {
+    width: 170px;
+    height: 170px;
+    object-fit: contain; /* 픽셀 깨짐이나 잘림 없이 박스 크기에 정갈하게 맞춤 */
+    border: 1px solid #f2f2f2;
+    border-radius: 4px;
+    background-color: #fafafa;
+}
+
+.cardContent {
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.cardContent h3 {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+    font-weight: 600;
+}
+
+.detailsIcon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    color: #888;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.detailsIcon:hover {
+    color: #e27d60;
+}
+
+/* 📱 모바일 해상도 반응형 */
+@media (max-width: 767px) {
+    .themeSection {
+        min-height: auto;
+        padding: 30px 10px;
+    }
+
+    .themeOverlay {
+        padding: 25px 15px;
+    }
+
+    .themeOverlay h2 {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    .dessertCards {
+        gap: 12px;
+    }
+
+    .dessertCard {
+        width: calc(50% - 6px); /* 모바일에서는 2열 배치 */
+        min-width: 140px;
+        height: auto;
+        padding: 12px 8px;
+    }
+
+    .dessertCard img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1; /* 정사각형 비율 강제 */
+    }
+
+    .cardContent {
+        margin-top: 10px;
+    }
+
+    .cardContent h3 {
+        font-size: 14px;
+    }
+}
+
+/* 💻 태블릿 해상도 반응형 */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .themeSection {
+        min-height: 700px;
+        padding: 40px 15px;
+    }
+
+    .themeOverlay {
+        padding: 30px 20px;
+        max-width: 800px;
+    }
+
+    .themeOverlay h2 {
+        font-size: 32px;
+    }
+
+    .dessertCard {
+        width: 200px;
+        height: 250px;
+    }
+
+    .dessertCard img {
+        width: 150px;
+        height: 150px;
+    }
+}
+}

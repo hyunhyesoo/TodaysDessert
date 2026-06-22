@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오늘의 디저트</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/top.css">
+    <link rel="stylesheet" href="css/category.css">
+</head>
+
+<body>
+    <!-- 헤더 -->
+    <header>
+        <a href="/">
+            <img src="imgs/logo.png" alt="로고" class="logo" />
+        </a>
+    </header>
+
+    <!-- 네비게이션 바 -->
+    <nav class="navbar">
+        <ul class="navMenu">
+            <li><a href="/intro" class="goIntro">홈페이지소개</a></li>
+            <li><a href="/category" class="goCategory">카테고리</a></li>
+        </ul>
+        <div class="searchBar">
+            <input type="text" placeholder="검색어 입력" class="searchInput" />
+        </div>
+        <div class="navIcons">
+            <button class="iconBtn searchBtn" aria-label="필터"><span class="tuneIcon"></span></button>
+            <button class="iconBtn userBtn" aria-label="사용자"><span class="userIcon"></span></button>
+            <button class="iconBtn goCategory" aria-label="메뉴"><span class="menuIcon"></span></button>
+        </div>
+    </nav>
+
+    <section class="categorySection">
+        <h2 class="sectionTitle">원하는 카테고리를 확인해보세요!</h2>
+        <div class="categoryGrid">
+            <div class="categoryCard">
+                <div class="categoryIcon">
+                    <img src="imgs/케이크.png" alt="케이크 아이콘">
+                </div>
+                <h3>케이크</h3>
+            </div>
+            <div class="categoryCard">
+                <div class="categoryIcon">
+                    <img src="imgs/베이글.png" alt="베이글&샌드위치 아이콘">
+                </div>
+                <h3>베이글&샌드위치</h3>
+            </div>
+            <div class="categoryCard">
+                <div class="categoryIcon">
+                    <img src="imgs/베이커리.png" alt="베이커리 아이콘">
+                </div>
+                <h3>베이커리</h3>
+            </div>
+            <div class="categoryCard">
+                <div class="categoryIcon">
+                    <img src="imgs/빙수.png" alt="빙수&파르페 아이콘">
+                </div>
+                <h3>빙수&파르페</h3>
+            </div>
+            <div class="categoryCard">
+                <div class="categoryIcon">
+                    <img src="imgs/아이스크림.png" alt="아이스크림 아이콘">
+                </div>
+                <h3>아이스크림</h3>
+            </div>
+            <div class="categoryCard">
+                <div class="categoryIcon">
+                    <img src="imgs/음료.png" alt="음료 아이콘">
+                </div>
+                <h3>음료</h3>
+            </div>
+        </div>
+    </section>
+    <script src="js/top.js"></script>
+    <script src="js/category.js"></script>
+</body>
+
+</html>

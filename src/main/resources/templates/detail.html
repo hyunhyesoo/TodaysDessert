@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="css/top.css">
+  <link rel="stylesheet" href="css/detail.css">
+
+</head>
+
+<body>
+  <!-- 헤더 -->
+  <header>
+    <a href="/">
+      <img src="imgs/logo.png" alt="로고" class="logo" />
+    </a>
+  </header>
+
+  <!-- 네비게이션 바 -->
+  <nav class="navbar">
+    <ul class="navMenu">
+      <li><a href="/intro" class="goIntro">홈페이지소개</a></li>
+      <li><a href="/category" class="goCategory">카테고리</a></li>
+    </ul>
+    <div class="searchBar">
+      <input type="text" placeholder="검색어 입력" class="searchInput" />
+    </div>
+    <div class="navIcons">
+      <button class="iconBtn searchBtn" aria-label="필터"><span class="tuneIcon"></span></button>
+      <button class="iconBtn userBtn" aria-label="사용자"><span class="userIcon"></span></button>
+      <button class="iconBtn goCategory" aria-label="메뉴"><span class="menuIcon"></span></button>
+    </div>
+  </nav>
+
+  <div class="mainContainer">
+    <h2 class="productTitle">메뉴 상세보기</h2>
+
+    <div class="product">
+      <div class="favoriteIcon material-icons" id="favoriteBtn">star_border</div>
+      <div class="productContent">
+        <img src="imgs/글레이즈드도넛.png" class="productImage" />
+
+        <div class="productRight">
+          <div class="productText">
+            <h3 class="productName">글레이즈드 도넛</h3>
+            <p class="productDetail">설탕코팅을 입힌 부드러운 도넛으로, 달콤하고 쫄깃한 식감이 특징입니다.</p>
+          </div>
+
+          <div class="productAction">
+            <button class="likeBtn"><span class="material-icons">thumb_up</span> <span class="likeCount">0</span></button>
+            <button class="commentBtn"><span class="material-icons">chat</span></button>
+          </div>
+        </div>
+      </div>
+
+      <ul class="productInfo">
+        <li>예상 칼로리: 350kcal</li>
+        <li>예상 가격: 4,000원 ~ 6,000원</li>
+        <li>예상 알레르기 정보: 우유, 계란, 밀</li>
+      </ul>
+
+      <!-- 💬 댓글 영역 추가 -->
+      <div class="commentSection hidden">
+        <h3>댓글 <span class="commentCount">(0)</span></h3>
+        <div class="commentInputForm">
+          <textarea id="commentInput" placeholder="댓글을 입력해 주세요..."></textarea>
+          <button id="submitComment">등록</button>
+        </div>
+        <div class="commentList" id="commentList">
+          <!-- 댓글 목록이 동적으로 추가됩니다 -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/top.js"></script>
+  <script src="js/detail.js"></script>
+</body>
+
+</html>

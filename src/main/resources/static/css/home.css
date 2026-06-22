@@ -1,0 +1,331 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Pretendard', sans-serif;
+    background-color: #fff;
+}
+
+.topContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.topMain {
+    display: flex;
+    gap: 50px;
+    margin: 40px 0;
+    height: 400px;
+}
+
+.topMain .theme {
+    flex: 7;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url('../imgs/이달의테마.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.top5 {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.top5 h3 {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.topContainer .theme h3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+}
+
+.topContainer .theme h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+}
+
+.topContainer .theme p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.top-desserts {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.top-desserts li a {
+    display: block;
+    background-color: #ffeaea;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 8px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.btmContainer {
+    display: flex;
+    padding: 30px;
+}
+
+.recommended {
+    flex: 1.2;
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-image: url('../imgs/추천디저트.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.right-btm {
+    flex: 1.8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.comment-event {
+    background-color: #fff5f5;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.comment-event h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #fff;
+    padding: 15px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.footer-logo {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+    .topContainer {
+        gap: 20px;
+        padding: 20px 15px;
+    }
+
+    .topMain {
+        flex-direction: column;
+        gap: 20px;
+        margin: 20px 0;
+        height: auto;
+    }
+
+    .theme {
+        height: 280px;
+        padding: 15px;
+        justify-content: center;
+    }
+
+    .topContainer .theme h3 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .topContainer .theme h2 {
+        font-size: 32px;
+        margin-bottom: 8px;
+    }
+
+    .topContainer .theme p {
+        font-size: 16px;
+    }
+
+    .top5 {
+        margin-top: 20px;
+    }
+
+    .top5 h3 {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .top-desserts li a {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .btmContainer {
+        flex-direction: column;
+        padding: 20px 15px;
+        gap: 20px;
+    }
+
+    .recommended {
+        padding: 15px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .recommended h2 {
+        font-size: 22px;
+        color: #fff;
+    }
+
+    .right-btm {
+        padding: 0;
+    }
+
+    .comment-event {
+        padding: 15px;
+        margin-bottom: 0;
+    }
+
+    .comment-event h3 {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .comment-event p {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .topContainer {
+        gap: 25px;
+        padding: 25px 20px;
+    }
+
+    .topMain {
+        gap: 20px;
+        margin: 30px 0;
+        height: 360px;
+    }
+
+    .theme {
+        flex: 1.8;
+        padding: 20px;
+        justify-content: center;
+    }
+
+    .topContainer .theme h3 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .topContainer .theme h2 {
+        font-size: 38px;
+        margin-bottom: 10px;
+    }
+
+    .topContainer .theme p {
+        font-size: 18px;
+    }
+
+    .top5 {
+        flex: 1.2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .top5 h3 {
+        font-size: 22px;
+        margin-bottom: 12px;
+        text-align: left;
+    }
+
+    .top-desserts li a {
+        padding: 10px 15px;
+        font-size: 15px;
+    }
+
+    .btmContainer {
+        padding: 25px 20px;
+        gap: 20px;
+    }
+
+    .recommended {
+        flex: 1;
+        padding: 20px;
+        height: 280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .recommended h2 {
+        font-size: 26px;
+        color: #fff;
+    }
+
+    .right-btm {
+        flex: 1;
+        padding: 0 0 0 20px;
+    }
+
+    .comment-event {
+        padding: 20px;
+        margin-bottom: 15px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .comment-event h3 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .comment-event p {
+        font-size: 15px;
+    }
+}

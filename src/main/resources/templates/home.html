@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>오늘의 디저트</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="css/top.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+  <!-- 헤더 -->
+  <header>
+    <a href="/">
+      <img src="imgs/logo.png" alt="로고" class="logo" />
+    </a>
+  </header>
+
+  <!-- 네비게이션 바 -->
+  <nav class="navbar">
+    <ul class="navMenu">
+      <li><a href="/intro" class="goIntro">홈페이지소개</a></li>
+      <li><a href="/category" class="goCategory">카테고리</a></li>
+    </ul>
+    <div class="searchBar">
+      <input type="text" placeholder="검색어 입력" class="searchInput" />
+    </div>
+    <div class="navIcons">
+      <button class="iconBtn searchBtn" aria-label="필터"><span class="tuneIcon"></span></button>
+      <button class="iconBtn userBtn" aria-label="사용자"><span class="userIcon"></span></button>
+      <button class="iconBtn goCategory" aria-label="메뉴"><span class="menuIcon"></span></button>
+    </div>
+  </nav>
+
+  <!-- 상단: 이달의 테마 + 인기 디저트 TOP5 -->
+  <section class="topContainer">
+    <div class="topMain">
+      <div class="theme">
+      </div>
+      <div class="top5">
+        <h3>오늘의 인기 디저트 TOP5</h3>
+        <ul class="top-desserts">
+          <li><a href="#">1위 딸기생크림케이크</a></li>
+          <li><a href="#">2위 자몽에이드</a></li>
+          <li><a href="#">3위 소금빵</a></li>
+          <li><a href="#">4위 복숭아타르트</a></li>
+          <li><a href="#">5위 바나나누텔라와플</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 하단: 추천 디저트 + 댓글 이벤트 & 푸터 -->
+    <div class="btmContainer">
+      <div class="recommended">
+        <h2>오늘의 추천 디저트</h2>
+        <!-- <img src="imgs/추천디저트.png" alt="추천 디저트" /> -->
+      </div>
+      <div class="right-btm">
+        <div class="comment-event">
+          <h3>댓글을 남겨주세요!</h3>
+          <p>추첨을 통해 디저트 카페 상품권을 드립니다!</p>
+        </div>
+        <footer class="footer">
+          <img src="imgs/logo.png" alt="로고" class="footer-logo" />
+          <p>서울특별시 용산구 보광로 73</p>
+          <p>사업자등록번호: 123-45-67890 | 대표 번호: 02-123-4567</p>
+          <p>Copyright ⓒ12345647890</p>
+        </footer>
+      </div>
+    </div>
+  </section>
+  <script src="js/top.js"></script>
+  <script src="js/home.js"></script>
+</body>
+
+</html>

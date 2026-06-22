@@ -1,0 +1,217 @@
+header {
+  display: flex;
+  flex-direction: column;
+  /* 세로 정렬 */
+  align-items: center;
+  /* 가로 중앙 */
+  justify-content: center;
+  /* 세로 중앙 */
+  padding: 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+header img.logo {
+  width: 320px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* 네비게이션 바 */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #ffdede;
+}
+
+.navMenu {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  margin-left: 20px;
+  padding: 0;
+}
+
+.navMenu li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.searchBar {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.searchBar input {
+  width: 100%;
+  max-width: 800px;
+  /* 너비 키움 */
+  height: 40px;
+  /* 높이 키움 */
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* 네비 아이콘들 (필터, 유저, 메뉴) */
+.navIcons {
+  display: flex;
+  gap: 40px;
+  margin: 0;
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 35px;
+  padding: 4px;
+  color: #333; /* 피그마처럼 아이콘 색상을 어둡게 설정 */
+}
+
+.tuneIcon, .userIcon, .menuIcon {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 35px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+.tuneIcon::before {
+  content: 'tune';
+}
+
+.userIcon::before {
+  content: 'person';
+}
+
+.menuIcon::before {
+  content: 'menu';
+}
+
+@media (max-width: 767px) {
+  header {
+    padding: 15px 10px;
+  }
+
+  header img.logo {
+    width: 60px;
+    margin-right: 0;
+  }
+
+  header h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 20px;
+  }
+
+  .navMenu {
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 0;
+  }
+
+  .navMenu li a {
+    font-size: 16px;
+  }
+
+  .searchBar {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .searchBar input {
+    width: 100%;
+    max-width: 90%;
+    font-size: 14px;
+    height: 36px;
+    padding: 8px 16px;
+  }
+
+  .navIcons {
+    justify-content: flex-end;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .iconBtn {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  header {
+    padding: 18px 20px;
+  }
+
+  header img.logo {
+    width: 70px;
+    margin-right: 8px;
+  }
+
+  header h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 15px 30px;
+    gap: 15px;
+  }
+
+  .navMenu {
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navMenu li a {
+    font-size: 18px;
+  }
+
+  .searchBar {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .searchBar input {
+    width: 100%;
+    max-width: 600px;
+    font-size: 15px;
+    height: 38px;
+    padding: 10px 18px;
+  }
+
+  .navIcons {
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+  }
+
+  .iconBtn {
+    font-size: 32px;
+  }
+}

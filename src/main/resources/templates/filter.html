@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/top.css">
+    <link rel="stylesheet" href="css/filter.css">
+</head>
+
+<body>
+    <!-- 헤더 -->
+    <header>
+        <a href="/">
+            <img src="imgs/logo.png" alt="로고" class="logo" />
+        </a>
+    </header>
+
+    <!-- 네비게이션 바 -->
+    <nav class="navbar">
+        <ul class="navMenu">
+            <li><a href="/intro" class="goIntro">홈페이지소개</a></li>
+            <li><a href="/category" class="goCategory">카테고리</a></li>
+        </ul>
+        <div class="searchBar">
+            <input type="text" placeholder="검색어 입력" class="searchInput" />
+        </div>
+        <div class="navIcons">
+            <button class="iconBtn searchBtn" aria-label="필터"><span class="tuneIcon"></span></button>
+            <button class="iconBtn userBtn" aria-label="사용자"><span class="userIcon"></span></button>
+            <button class="iconBtn goCategory" aria-label="메뉴"><span class="menuIcon"></span></button>
+        </div>
+    </nav>
+
+    <main class="filterPage">
+        <div class="filterHeader">
+            <span class="backArrow">←</span> <strong>필터 (최대 3개)</strong>
+        </div>
+
+        <div class="filterSection">
+            <div class="filterCategory">
+                <span>맛</span>
+                <span class="arrow">▲</span>
+            </div>
+            <div class="filterOptions">
+                <button class="optionBtn">새콤함</button>
+                <button class="optionBtn">쓴맛</button>
+                <button class="optionBtn">짠맛</button>
+                <button class="optionBtn">단맛</button>
+                <button class="optionBtn">고소함</button>
+                <button class="optionBtn">담백함</button>
+            </div>
+        </div>
+        <div class="filterSection">
+            <div class="filterCategory">
+                <span>온도 / 계절 메뉴</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="filterOptions" style="display: none;">
+                <button class="optionBtn">차가움 (ICE)</button>
+                <button class="optionBtn">따뜻함 (HOT)</button>
+                <button class="optionBtn">봄 메뉴</button>
+                <button class="optionBtn">여름 메뉴</button>
+                <button class="optionBtn">가을 메뉴</button>
+                <button class="optionBtn">겨울 메뉴</button>
+            </div>
+        </div>
+
+        <div class="filterSection">
+            <div class="filterCategory">
+                <span>알레르기 여부</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="filterOptions" style="display: none;">
+                <button class="optionBtn">우유</button>
+                <button class="optionBtn">계란</button>
+                <button class="optionBtn">밀</button>
+                <button class="optionBtn">땅콩</button>
+                <button class="optionBtn">견과류</button>
+                <button class="optionBtn">대두</button>
+                <button class="optionBtn">복숭아</button>
+                <button class="optionBtn">해당 없음</button>
+            </div>
+        </div>
+
+        <div class="filterFooter">
+            <button class="resetBtn"><span class="material-icons">refresh</span></button>
+            <button class="applyBtn">필터 적용</button>
+        </div>
+    </main>
+    <script src="js/top.js"></script>
+    <script src="js/filter.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Pretendard', sans-serif;
+            background-color: #fff;
+        }
+
+        .categorySection {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .sectionTitle {
+            font-size: 30px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .categoryGrid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            justify-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .categoryCard {
+            width: 100%;
+            max-width: 260px;
+            /* 이미지에 맞춰 카드 최대 너비 설정 */
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .categoryIcon {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f8f8;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .categoryIcon img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+        }
+
+        .categoryCard h3 {
+            font-size: 20px;
+            color: #333;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        /* 반응형 웹 설정 */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .categoryGrid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .categoryCard {
+                max-width: 220px;
+                padding: 16px;
+            }
+
+            .categoryIcon {
+                width: 90px;
+                height: 90px;
+            }
+
+            .categoryIcon img {
+                width: 75%;
+                height: 75%;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .categoryGrid {
+                grid-template-columns: 1fr;
+            }
+
+            .categorySection {
+                padding: 30px 20px;
+            }
+
+            .sectionTitle {
+                font-size: 24px;
+            }
+
+            .categoryCard {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .categoryIcon {
+                width: 80px;
+                height: 80px;
+            }
+
+            .categoryCard h3 {
+                font-size: 18px;
+            }
+        }

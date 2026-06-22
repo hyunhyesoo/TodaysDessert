@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘의 디저트</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="css/top.css">
+  <link rel="stylesheet" href="css/search.css">
+</head>
+
+<body>
+  <!-- 헤더 -->
+  <header>
+    <a href="/">
+      <img src="imgs/logo.png" alt="로고" class="logo" />
+    </a>
+  </header>
+
+  <!-- 네비게이션 바 -->
+  <nav class="navbar">
+    <ul class="navMenu">
+      <li><a href="/intro" class="goIntro">홈페이지소개</a></li>
+      <li><a href="/category" class="goCategory">카테고리</a></li>
+    </ul>
+    <div class="searchBar">
+      <input type="text" placeholder="검색어 입력" class="searchInput" />
+    </div>
+    <div class="navIcons">
+      <button class="iconBtn searchBtn" aria-label="필터"><span class="tuneIcon"></span></button>
+      <button class="iconBtn userBtn" aria-label="사용자"><span class="userIcon"></span></button>
+      <button class="iconBtn goCategory" aria-label="메뉴"><span class="menuIcon"></span></button>
+    </div>
+  </nav>
+
+  <main class="main-container">
+    <div class="card">
+      <img src="imgs/글레이즈드도넛.png" alt="글레이즈드 도넛">
+      <h3>글레이즈드 도넛</h3>
+    </div>
+    <div class="card">
+      <img src="imgs/초코도넛.png" alt="초코코팅 도넛">
+      <h3>초코코팅 도넛</h3>
+    </div>
+    <div class="card">
+      <img src="imgs/카스테라도넛.png" alt="카스테라 도넛">
+      <h3>카스테라 도넛</h3>
+    </div>
+    <div class="card">
+      <img src="imgs/레몬필링도넛.png" alt="레몬필링 도넛">
+      <h3>레몬필링 도넛</h3>
+    </div>
+    <div class="card">
+      <img src="imgs/딸기필링도넛.png" alt="딸기필링 도넛">
+      <h3>딸기필링 도넛</h3>
+    </div>
+  </main>
+  <script src="js/top.js"></script>
+  <script src="js/search.js"></script>
+</body>
+
+</html>

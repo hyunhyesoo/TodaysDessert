@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>검색 결과</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="css/top.css">
+  <link rel="stylesheet" href="css/month.css">
+</head>
+
+<body>
+  <!-- 헤더 -->
+  <header>
+    <a href="/">
+      <img src="imgs/logo.png" alt="로고" class="logo" />
+    </a>
+  </header>
+
+  <!-- 네비게이션 바 -->
+  <nav class="navbar">
+    <ul class="navMenu">
+      <li><a href="/intro" class="goIntro">홈페이지소개</a></li>
+      <li><a href="/category" class="goCategory">카테고리</a></li>
+    </ul>
+    <div class="searchBar">
+      <input type="text" placeholder="검색어 입력" class="searchInput" />
+    </div>
+    <div class="navIcons">
+      <button class="iconBtn searchBtn" aria-label="필터"><span class="tuneIcon"></span></button>
+      <button class="iconBtn userBtn" aria-label="사용자"><span class="userIcon"></span></button>
+      <button class="iconBtn goCategory" aria-label="메뉴"><span class="menuIcon"></span></button>
+    </div>
+  </nav>
+
+
+  <section class="themeSection">
+    <div class="themeOverlay">
+      <div class="dessertCards">
+        <!-- 1. 복숭아 케이크 -->
+        <div class="dessertCard">
+          <img src="imgs/복숭아케이크.png" alt="복숭아 케이크" />
+          <div class="cardContent">
+            <h3>복숭아 케이크</h3>
+          </div>
+        </div>
+        <!-- 2. 복숭아 에이드 -->
+        <div class="dessertCard">
+          <img src="imgs/복숭아에이드.png" alt="복숭아 에이드" />
+          <div class="cardContent">
+            <h3>복숭아 에이드</h3>
+          </div>
+        </div>
+        <!-- 3. 그릭모모 -->
+        <div class="dessertCard">
+          <img src="imgs/복숭아그릭모모.png" alt="그릭모모" />
+          <div class="cardContent">
+            <h3>그릭모모</h3>
+          </div>
+        </div>
+        <!-- 4. 복숭아 케이크 (피그마 중복 재현) -->
+        <div class="dessertCard">
+          <img src="imgs/복숭아케이크.png" alt="복숭아 케이크" />
+          <div class="cardContent">
+            <h3>복숭아 케이크</h3>
+          </div>
+        </div>
+        <!-- 5. 복숭아 케이크 (피그마 중복 재현) -->
+        <div class="dessertCard">
+          <img src="imgs/복숭아케이크.png" alt="복숭아 케이크" />
+          <div class="cardContent">
+            <h3>복숭아 케이크</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="js/top.js"></script>
+  <script src="js/month.js"></script>
+</body>
+
+</html>

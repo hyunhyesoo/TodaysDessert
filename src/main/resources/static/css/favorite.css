@@ -1,0 +1,253 @@
+ body {
+     margin: 0;
+     padding: 0;
+     height: 100%;
+     font-family: 'Pretendard', sans-serif;
+     background-color: #fff;
+ }
+
+ /* 먹고 싶어요! 목록 섹션 */
+ .wishlistSection {
+     padding: 20px 40px;
+     margin-top: 30px;
+ }
+
+ .wishlistHeader {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin-bottom: 20px;
+     position: relative;
+     gap: 20px;
+ }
+
+ .wishlistStar {
+     font-size: 40px;
+     color: #FFD700;
+     margin-right: 10px;
+     display: inline-block;
+ }
+
+ .wishlistTitle {
+     font-size: 50px;
+     font-weight: bold;
+     color: #000000;
+     margin: 0;
+ }
+
+ .wishlistDelete {
+     display: flex;
+     position: absolute;
+     font-size: 18px;
+     right: 0;
+     margin-right: 200px;
+     margin-top: 50px;
+     gap: 15px;
+     cursor: pointer;
+ }
+
+ /* 디저트 카드 그리드 */
+ .cardGrid {
+     padding: 40px;
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     /* 고정 3열 */
+     gap: 25px;
+     justify-items: center;
+ }
+
+ .card {
+     width: 100%;
+     max-width: 260px;
+     /* 이미지에 맞게 최대 너비 설정 */
+     background-color: #fff;
+     border: 1px solid #ddd;
+     border-radius: 10px;
+     overflow: hidden;
+     position: relative;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+     text-align: center;
+     padding-bottom: 15px;
+ }
+
+ .cardImage {
+     width: 100%;
+     height: 200px;
+     background-color: #fafafa;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     overflow: hidden;
+     border-bottom: 1px solid #eee;
+     position: relative;
+
+     /* 체크 아이콘 위치 지정을 위해 */
+ }
+
+ .cardImage {
+     width: 100%;
+     height: 100%;
+     object-fit: fill;
+     border-radius: 10px 10px 0 0;
+     cursor: pointer;
+     pointer-events: auto;
+ }
+
+  .checkIcon {
+      display: inline-block;
+      font-family: 'Material Icons';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 28px;
+      color: #ccc;
+      z-index: 100;
+      cursor: pointer;
+      pointer-events: auto;
+      opacity: 0.4;
+      transition: color 0.2s, opacity 0.2s;
+  }
+
+  .checkIcon.active {
+      color: #ff7b7b;
+      opacity: 1;
+  }
+
+  .card.selected {
+      border: 1px solid #ff7b7b;
+      box-shadow: 0 4px 12px rgba(255, 123, 123, 0.15);
+  }
+
+ .card h3 {
+     font-size: 20px;
+     color: #333;
+     margin: 15px 0 5px 0;
+     padding: 0 10px;
+ }
+
+ @media (max-width: 767px) {
+     .wishlistSection {
+         padding: 15px 20px;
+         margin-top: 20px;
+     }
+
+     .wishlistHeader {
+         flex-direction: column;
+         gap: 10px;
+         text-align: center;
+         margin-bottom: 15px;
+         align-items: center;
+     }
+
+     .wishlistStar {
+         width: 30px;
+         height: 30px;
+         margin-right: 0;
+         margin-bottom: 5px;
+     }
+
+     .wishlistTitle {
+         font-size: 30px;
+     }
+
+     .wishlistDelete {
+         position: static;
+         font-size: 16px;
+         margin: 10px 0 0 0;
+         justify-content: center;
+         width: 100%;
+         text-align: center;
+     }
+
+     .cardGrid {
+         padding: 20px 10px;
+         grid-template-columns: 1fr;
+         gap: 20px;
+     }
+
+     .card {
+         max-width: 100%;
+     }
+
+     .cardImage {
+         height: 180px;
+     }
+
+     .cardImage img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         border-radius: 10px 10px 0 0;
+     }
+
+     .checkIcon {
+         width: 24px;
+         height: 24px;
+         top: 8px;
+         left: 8px;
+     }
+
+     .card h3 {
+         font-size: 18px;
+         margin: 10px 0 5px 0;
+     }
+ }
+
+ @media (min-width: 768px) and (max-width: 1024px) {
+     .wishlistSection {
+         padding: 20px 30px;
+     }
+
+     .wishlistHeader {
+         gap: 15px;
+         align-items: center;
+     }
+
+     .wishlistStar {
+         width: 35px;
+         height: 35px;
+     }
+
+     .wishlistTitle {
+         font-size: 40px;
+     }
+
+     .wishlistDelete {
+         font-size: 17px;
+         position: absolute;
+         right: 15px;
+         top: 50%;
+         transform: translateY(-50%);
+         margin: 0;
+     }
+
+     .cardGrid {
+         padding: 30px;
+         grid-template-columns: repeat(2, 1fr);
+         gap: 20px;
+     }
+
+     .card {
+         max-width: 280px;
+     }
+
+     .cardImage {
+         height: 190px;
+     }
+
+     .cardImage img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         border-radius: 10px 10px 0 0;
+     }
+
+     .checkIcon {
+         width: 26px;
+         height: 26px;
+     }
+
+     .card h3 {
+         font-size: 19px;
+     }
+ }
