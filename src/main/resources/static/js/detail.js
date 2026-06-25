@@ -104,7 +104,18 @@ $(document).ready(function () {
 
     // 댓글 등록 버튼 클릭
     $("#submitComment").click(function () {
+      const user = $("#commentUser").val().trim();
+      const password = $("#commentPassword").val().trim();
       const text = $("#commentInput").val().trim();
+      
+      if (!user) {
+        alert("닉네임을 입력해주세요.");
+        return;
+      }
+      if (!password || password.length !== 4) {
+        alert("비밀번호 4자리를 입력해주세요.");
+        return;
+      }
       if (!text) {
         alert("댓글 내용을 입력해주세요.");
         return;
@@ -113,9 +124,11 @@ $(document).ready(function () {
       $.ajax({
         url: "/api/comments",
         type: "POST",
-        data: { text: text },
+        data: { text: text, user: user, password: password },
         success: function (data) {
-          $("#commentInput").val(""); // 입력창 비우기
+          $("#commentUser").val(""); // 입력창 비우기
+          $("#commentPassword").val("");
+          $("#commentInput").val("");
           renderComments(data); // 화면 갱신
         },
         error: function () {
@@ -126,17 +139,23 @@ $(document).ready(function () {
 
     // 댓글 삭제 클릭 (이벤트 위임)
     $(document).on("click", ".commentDeleteBtn", function () {
-      if (!confirm("댓글을 삭제하시겠습니까?")) return;
+      let password = prompt("비밀번호 4자리를 입력해주세요.");
+      if (password === null) return; // 취소 버튼 클릭 시 종료
+      if (!password.trim()) {
+        alert("비밀번호를 입력해주세요.");
+        return;
+      }
       
       const index = $(this).data("index");
       $.ajax({
         url: "/api/comments/" + index,
         type: "DELETE",
+        data: { password: password },
         success: function (data) {
           renderComments(data); // 화면 갱신
         },
-        error: function () {
-          alert("댓글 삭제에 실패했습니다.");
+        error: function (xhr) {
+          alert(xhr.responseText || "댓글 삭제에 실패했습니다. 비밀번호를 확인해주세요.");
         }
       });
     });

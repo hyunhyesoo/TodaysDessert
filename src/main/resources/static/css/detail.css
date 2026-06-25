@@ -12,28 +12,29 @@ body {
       margin: 0 auto;
     }
 
-    .pageTitle {
-      text-align: center;
-      font-size: 50px;
-      margin-bottom: 30px;
+    .productTitle {
+      font-size: 34px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      color: #333;
     }
 
     .product {
       background-color: #fff8f8;
-      padding: 30px;
+      padding: 40px; /* 30px에서 패딩을 키워 덜 비어 보이도록 수정 */
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       position: relative;
     }
 
     .productContent {
       display: flex;
       align-items: flex-start;
-      gap: 30px;
+      gap: 40px;
     }
 
     .productImage {
-      width: 300px;
+      width: 350px;
       border-radius: 15px;
     }
 
@@ -48,16 +49,43 @@ body {
       margin-bottom: 10px;
     }
 
-    .productName {
-      font-size: 30px;
-      font-weight: bold;
-      margin-bottom: 10px;
+    .productHeader {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
 
+    .productName {
+      font-size: 48px;
+      font-weight: bold;
+      margin: 0;
+      color: #222;
+    }
+
+    .favoriteBtn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #ffb8b8; /* 부드러운 분홍빛 별 기본값 */
+      font-size: 42px !important;
+      padding: 0;
+      transition: color 0.2s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .favoriteBtn:hover {
+      color: #ff5555;
+      transform: scale(1.15);
     }
 
     .productDetail {
-      font-size: 16px;
-      color: #444;
+      font-size: 22px;
+      color: #555;
+      line-height: 1.7;
+      margin-top: 0;
+      margin-bottom: 25px;
     }
 
     .material-icons {
@@ -76,45 +104,88 @@ body {
       vertical-align: middle;
     }
 
-    .favoriteIcon {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      cursor: pointer;
-      color: #888; /* 피그마의 회색 스타일에 맞춤 */
+    /* 디저트 상세 정보 카드 섹션 */
+    .productInfoSection {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+      width: 100%;
+    }
+
+    .infoCard {
+      background-color: rgba(255, 123, 123, 0.04);
+      border: 1px solid #ffe1e1;
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .infoCard:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(255, 123, 123, 0.08);
+    }
+
+    .infoIcon {
+      font-size: 32px !important;
+      color: #ff7b7b;
+      flex-shrink: 0;
+    }
+
+    .infoText {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .infoLabel {
+      font-size: 15px;
+      font-weight: 700;
+      color: #888;
+    }
+
+    .infoValue {
+      font-size: 21px;
+      font-weight: bold;
+      color: #222;
     }
 
     .productAction {
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-start;
+      gap: 20px;
       margin-top: 10px;
-      gap: 24px;
     }
 
     .likeBtn,
     .commentBtn {
-      background: none;
-      border: none;
+      background-color: rgba(255, 123, 123, 0.05);
+      border: 1px solid rgba(255, 123, 123, 0.2);
+      border-radius: 30px;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 6px;
-      color: #888; /* 피그마의 회색 아이콘 스타일에 맞춤 */
+      justify-content: center;
+      gap: 10px;
+      color: #ff5e5e;
       font-weight: bold;
+      font-size: 19px;
+      padding: 12px 24px;
+      transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .likeBtn:hover,
+    .commentBtn:hover {
+      background-color: #ff7b7b;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(255, 123, 123, 0.2);
     }
     
     .likeBtn span.likeCount {
-      font-size: 18px;
-    }
-
-    .productInfo {
-      margin-top: 30px;
-      text-align: center;
-      font-size: 16px;
-      color: #666;
-      list-style: none;
-      padding: 0;
-      line-height: 1.6;
+      font-size: 20px;
+      font-weight: bold;
     }
 
     @media (max-width: 767px) {
@@ -138,42 +209,59 @@ body {
         margin-bottom: 20px;
       }
 
-      .productText {
-        width: 100%;
-        text-align: center;
+      .productHeader {
+        justify-content: center;
+      }
+
+      .productName {
+        font-size: 32px;
+      }
+
+      .favoriteBtn {
+        font-size: 30px !important;
       }
 
       .productTitle {
-        font-size: 24px;
+        font-size: 26px;
+        text-align: center;
       }
 
       .productDetail {
-        font-size: 16px;
+        font-size: 17px;
+        text-align: center;
+      }
+
+      .productInfoSection {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .infoCard {
+        padding: 12px 15px;
+      }
+
+      .infoValue {
+        font-size: 18px;
       }
 
       .productAction {
         justify-content: center;
-        position: static;
-        margin-top: 16px;
+        margin-top: 15px;
       }
 
       .likeBtn,
       .commentBtn {
-        font-size: 30px;
-      }
-
-      .productInfo {
-        font-size: 14px;
-        margin-top: 30px;
+        font-size: 16px;
+        padding: 10px 18px;
       }
     }
 
     /* 💬 댓글 영역 스타일 */
     .commentSection {
-        margin-top: 30px;
+        margin-top: 40px;
         border-top: 2px solid #ff7b7b;
-        padding-top: 20px;
-        text-align: left; /* text-align: center 해제 */
+        padding-top: 25px;
+        text-align: left;
     }
 
     .commentSection.hidden {
@@ -181,9 +269,9 @@ body {
     }
 
     .commentSection h3 {
-        font-size: 20px;
+        font-size: 28px;
         color: #333;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         display: flex;
         align-items: center;
         gap: 8px;
@@ -197,19 +285,39 @@ body {
     .commentInputForm {
         display: flex;
         flex-direction: column;
-        gap: 10px;
-        margin-bottom: 20px;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+    .commentMetaInput {
+        display: flex;
+        gap: 12px;
+    }
+
+    .metaInput {
+        padding: 12px 16px;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+        font-size: 18px;
+        width: 220px;
+        box-sizing: border-box;
+    }
+
+    .metaInput:focus {
+        outline: none;
+        border-color: #ff7b7b;
     }
 
     .commentInputForm textarea {
         width: 100%;
-        height: 80px;
-        padding: 12px;
+        height: 120px;
+        padding: 18px;
         border-radius: 8px;
         border: 1px solid #ddd;
         resize: none;
         font-family: inherit;
-        font-size: 14px;
+        font-size: 20px;
+        line-height: 1.6;
         box-sizing: border-box;
     }
 
@@ -223,16 +331,17 @@ body {
         background-color: #ff7b7b;
         color: white;
         border: none;
-        padding: 8px 20px;
-        font-size: 15px;
-        border-radius: 20px;
+        padding: 12px 30px;
+        font-size: 20px;
+        border-radius: 24px;
         cursor: pointer;
-        transition: background-color 0.2s;
+        transition: background-color 0.2s, transform 0.2s;
         pointer-events: auto;
     }
 
     .commentInputForm button:hover {
         background-color: #e56a6a;
+        transform: translateY(-1px);
     }
 
     .commentList {
@@ -245,7 +354,7 @@ body {
         background-color: #fff;
         border: 1px solid #f0f0f0;
         border-radius: 8px;
-        padding: 15px;
+        padding: 20px;
         position: relative;
         box-shadow: 0 2px 4px rgba(0,0,0,0.02);
     }
@@ -256,21 +365,22 @@ body {
         align-items: center;
         flex-wrap: wrap;
         gap: 10px;
-        font-size: 13px;
+        font-size: 17px;
         color: #888;
-        margin-bottom: 8px;
+        margin-bottom: 12px;
     }
 
     .commentUser {
         font-weight: bold;
-        color: #555;
+        color: #222;
+        font-size: 20px;
         word-break: break-all;
     }
 
     .commentText {
-        font-size: 15px;
+        font-size: 21px;
         color: #333;
-        line-height: 1.4;
+        line-height: 1.6;
         word-break: break-all;
     }
 
@@ -290,7 +400,7 @@ body {
         background: none;
         border: none;
         color: #ff5555;
-        font-size: 12px;
+        font-size: 15px;
         cursor: pointer;
         pointer-events: auto;
         padding: 0;

@@ -4,7 +4,9 @@ $(document).ready(function () {
     if ($(e.target).hasClass("checkIcon")) {
       return;
     }
-    window.location.href = "/detail";
+    let name = $(this).find("h3").text().trim();
+    let img = $(this).find("img").attr("src");
+    window.location.href = `/detail?name=${encodeURIComponent(name)}&img=${encodeURIComponent(img)}`;
   });
 
   // 2. 체크 아이콘 클릭 시 선택/해제 토글
@@ -47,7 +49,7 @@ $(document).ready(function () {
       const cardHtml = `
         <div class="card">
           <div class="cardImage">
-            <span class="checkIcon"></span>
+            <span class="checkIcon material-icons">check_circle</span>
             <img src="${data.img}" alt="${data.name}">
           </div>
           <h3>${data.name}</h3>

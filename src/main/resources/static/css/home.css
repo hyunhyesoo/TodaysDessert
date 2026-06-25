@@ -9,9 +9,9 @@ body {
 .topContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px; /* 상하좌우 모든 구역의 간격을 40px로 균일하게 맞춤 */
+    gap: 50px; /* 구역 사이 여백을 50px로 넓혀 더 시원하고 여유롭게 배치 */
     padding: 30px 20px;
-    max-width: 1350px; /* 가로가 너무 늘어지지 않도록 최적의 가로폭 제한 */
+    max-width: 1500px; /* 최대 가로폭을 1500px로 상향하여 피그마 비례 유도 */
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
@@ -24,7 +24,7 @@ body {
 .theme {
     grid-column: 1 / span 3;
     grid-row: 1;
-    height: 520px; /* 세로 높이를 520px로 늘려 이미지 잘림 최소화 */
+    height: 600px; /* 배너 높이를 600px로 크게 늘려 복숭아 정원 이미지 잘림 방지 */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -44,7 +44,11 @@ body {
     flex-direction: column;
     justify-content: flex-start; /* 상단부터 채워지도록 정렬 */
     align-items: center; /* 전체 요소를 가로 중앙 정렬 */
-    padding-top: 10px;
+    padding: 24px 20px; /* 패딩 추가 */
+    background-color: #fffcfc; /* 따뜻한 느낌의 화이트 배경 */
+    border: 1px solid #ffe3e3; /* 소프트 코랄 테두리 */
+    border-radius: 12px; /* 카드 느낌의 라운더 처리 */
+    box-shadow: 0 4px 15px rgba(255, 123, 123, 0.04); /* 은은한 섀도우 */
 }
 
 .top5 h3 {
@@ -89,7 +93,7 @@ body {
 
 .top-desserts li {
     width: 100%;
-    max-width: 350px; /* 리스트 아이템의 최대 가로 크기를 350px로 제한 */
+    max-width: 400px; /* 가로폭 상향에 맞춰 리스트 박스 최대 가로폭도 400px로 상향 */
 }
 
 .top-desserts li a {
@@ -98,19 +102,25 @@ body {
     background-color: #ffeaea; /* 원래 분홍빛 배경 복구 */
     border-radius: 10px; /* 원래 라운드 모서리 복구 */
     padding: 10px;
-    margin-bottom: 8px;
+    margin-bottom: 16px; /* 순위 항목 간 간격을 16px로 넓혀 더 시원하게 배치 */
     color: #333;
     text-decoration: none;
     font-weight: 500;
-    transition: background-color 0.3s;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
     pointer-events: auto;
+}
+
+.top-desserts li a:hover {
+    background-color: #ffdada;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 123, 123, 0.15);
 }
 
 .recommended {
     grid-column: 1;
     grid-row: 2;
-    height: 420px; /* 세로 높이를 420px로 늘려 이미지 잘림 최소화 */
+    height: 520px; /* 카드 높이를 520px로 상향하여 쿠키 이미지 잘림 방지 */
     background-color: #f9f9f9;
     padding: 20px;
     text-align: center;
@@ -135,16 +145,26 @@ body {
 }
 
 .comment-event {
-    background-color: #fff5f5; /* 원래 분홍빛 배경 복구 */
-    border-radius: 0; /* 피그마처럼 직각 모서리로 변경 (요청사항) */
-    padding: 20px;
+    background: linear-gradient(135deg, #fff8f8 0%, #ffebeb 100%); /* 그라디언트 배경 */
+    border: 1px solid #ffe3e3; /* 소프트 코랄 테두리 */
+    border-radius: 12px; /* 통일감 있는 라운더 */
+    height: 280px; /* 피그마 비율에 가깝게 높이 지정 */
+    padding: 24px 20px;
     margin-bottom: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0 4px 15px rgba(255, 123, 123, 0.04);
 }
 
 .comment-event h3 {
     font-size: 24px;
     margin-bottom: 10px;
+    color: #ff5e5e; /* 코랄 포인트 */
+    font-weight: 700;
 }
 
 footer {
@@ -223,6 +243,7 @@ footer {
     .comment-event {
         padding: 15px;
         margin-bottom: 0;
+        height: auto;
     }
 
     .comment-event h3 {
@@ -304,6 +325,7 @@ footer {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        height: auto;
     }
 
     .comment-event h3 {

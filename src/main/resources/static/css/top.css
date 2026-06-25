@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 40px; /* 세로 두께를 축소하기 위해 패딩 조절 */
+  padding: 2px 40px; /* 세로 두께를 더 날씬하게 줄이기 위해 패딩 축소 */
   background-color: #ffdede;
   border-bottom: 1px solid #eee;
   position: relative;
@@ -43,8 +43,8 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   /* 좌측 로고 영역(360px) 및 우측 메뉴 영역(470px)과의 겹침을 방지하기 위한 반응형 너비 설정 */
-  width: calc(100% - 920px);
-  max-width: 780px; /* 검색창 길이를 약간 더 늘림 */
+  width: calc(100% - 900px);
+  max-width: 900px; /* 최대 가로 길이를 780px에서 900px로 상향 */
   min-width: 320px;
   margin: 0;
   z-index: 10;
@@ -52,11 +52,11 @@ body {
 
 .searchBar input {
   width: 100%;
-  height: 68px; /* 세로 두께를 60px에서 68px로 약간 더 늘림 */
-  padding: 12px 35px;
-  border-radius: 40px; /* 늘어난 높이에 맞춰 라운드 조정 */
+  height: 76px; /* 세로 높이를 68px에서 76px로 더 늘려 꽉 차 보이도록 조정 */
+  padding: 15px 40px;
+  border-radius: 45px; /* 늘어난 높이에 맞춰 라운드 비율 조정 */
   border: 1px solid #ccc;
-  font-size: 22px; /* 글씨 크기를 20px에서 22px로 약간 더 늘림 */
+  font-size: 24px; /* 글씨 크기를 22px에서 24px로 상향 */
   box-sizing: border-box;
 }
 
@@ -353,4 +353,38 @@ body {
     width: 100%;
     flex: none;
   }
+}
+
+/* 좌측 사이드바 인기 디저트 TOP5 스타일 */
+.top-desserts-sidebar {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.top-desserts-sidebar li {
+  width: 100%;
+}
+
+.top-desserts-sidebar li a {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #ffeaea;
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.top-desserts-sidebar li a:hover {
+  background-color: #ffdada;
+  transform: translateX(4px);
 }

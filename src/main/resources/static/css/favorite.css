@@ -10,6 +10,9 @@
  .wishlistSection {
      padding: 20px 40px;
      margin-top: 30px;
+     max-width: 1200px;
+     margin-left: auto;
+     margin-right: auto;
  }
 
  .wishlistHeader {
@@ -39,9 +42,9 @@
      display: flex;
      position: absolute;
      font-size: 18px;
-     right: 0;
-     margin-right: 5%; /* 고정 픽셀 대신 비율 사용 */
-     margin-top: 50px;
+     right: 40px;
+     top: 50%;
+     transform: translateY(-50%);
      gap: 15px;
      cursor: pointer;
  }

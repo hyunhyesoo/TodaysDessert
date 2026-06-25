@@ -22,12 +22,16 @@ public class ViewController {
         private String text;
         private long date;
 
+        @com.fasterxml.jackson.annotation.JsonIgnore
+        private String password;
+
         public Comment() {}
 
-        public Comment(String user, String text, long date) {
+        public Comment(String user, String text, long date, String password) {
             this.user = user;
             this.text = text;
             this.date = date;
+            this.password = password;
         }
 
         public String getUser() { return user; }
@@ -36,6 +40,8 @@ public class ViewController {
         public void setText(String text) { this.text = text; }
         public long getDate() { return date; }
         public void setDate(long date) { this.date = date; }
+        public String getPassword() { return password; }
+        public void setPassword(String password) { this.password = password; }
     }
 
     @GetMapping("/")
@@ -87,10 +93,14 @@ public class ViewController {
 
     @PostMapping("/api/comments")
     @ResponseBody
-    public List<Comment> addComment(@org.springframework.web.bind.annotation.RequestParam("text") String text) {
+    public List<Comment> addComment(
+            @org.springframework.web.bind.annotation.RequestParam("text") String text,
+            @org.springframework.web.bind.annotation.RequestParam("user") String user,
+            @org.springframework.web.bind.annotation.RequestParam("password") String password) {
         Comment comment = new Comment();
-        comment.setUser("방문자");
+        comment.setUser(user != null && !user.trim().isEmpty() ? user : "방문자");
         comment.setText(text);
+        comment.setPassword(password);
         comment.setDate(System.currentTimeMillis());
         commentList.add(comment);
         return commentList;
@@ -98,10 +108,19 @@ public class ViewController {
 
     @DeleteMapping("/api/comments/{index}")
     @ResponseBody
-    public List<Comment> deleteComment(@PathVariable("index") int index) {
+    public org.springframework.http.ResponseEntity<?> deleteComment(
+            @PathVariable("index") int index,
+            @org.springframework.web.bind.annotation.RequestParam("password") String password) {
         if (index >= 0 && index < commentList.size()) {
-            commentList.remove(index);
+            Comment comment = commentList.get(index);
+            if (comment.getPassword() != null && comment.getPassword().equals(password)) {
+                commentList.remove(index);
+                return org.springframework.http.ResponseEntity.ok(commentList);
+            } else {
+                return org.springframework.http.ResponseEntity.status(org.springframework.http.HttpStatus.FORBIDDEN)
+                        .body("비밀번호가 일치하지 않습니다.");
+            }
         }
-        return commentList;
+        return org.springframework.http.ResponseEntity.badRequest().body("댓글이 존재하지 않습니다.");
     }
 }

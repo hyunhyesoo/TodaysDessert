@@ -10,11 +10,11 @@ body {
 .themeSection {
     position: relative;
     width: 100%;
-    min-height: 850px; /* 5개 카드가 2줄로 배치될 수 있도록 최소 높이 확보 */
+    min-height: calc(100vh - 82px); /* 네비바를 제외한 화면 전체를 테마 배경 이미지로 가득 채움 */
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* 카드 위치 하단으로 이동 */
-    padding: 60px 20px 80px 20px; /* 하단 패딩 확보 */
+    align-items: center; /* 카드 오버레이를 화면 정중앙에 배치 */
+    padding: 60px 20px;
     overflow: hidden;
     box-sizing: border-box;
 }
@@ -37,7 +37,7 @@ body {
     background-color: rgba(255, 255, 255, 0.95);
     padding: 40px 30px;
     border-radius: 20px;
-    max-width: 95%; /* 기존 900px에서 변경 */
+    max-width: 900px; /* 원래대로 2줄 배열(첫줄 3개, 둘째줄 2개)을 유지하기 위해 900px로 원상복구 */
     width: 100%;
     text-align: center;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
