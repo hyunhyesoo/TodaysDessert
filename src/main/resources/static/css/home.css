@@ -93,15 +93,16 @@ body {
 
 .top-desserts li {
     width: 100%;
-    max-width: 400px; /* 가로폭 상향에 맞춰 리스트 박스 최대 가로폭도 400px로 상향 */
+    max-width: 300px; /* 원래 400px에서 줄여서 가로 폭을 정밀하게 축소 */
 }
 
 .top-desserts li a {
-    display: block;
+    display: flex;
+    align-items: center;
     width: 100%; /* li 크기에 맞춰 100% 채움 */
     background-color: #ffeaea; /* 원래 분홍빛 배경 복구 */
     border-radius: 10px; /* 원래 라운드 모서리 복구 */
-    padding: 10px;
+    padding: 10px 16px;
     margin-bottom: 16px; /* 순위 항목 간 간격을 16px로 넓혀 더 시원하게 배치 */
     color: #333;
     text-decoration: none;
@@ -109,6 +110,19 @@ body {
     transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
     pointer-events: auto;
+    box-sizing: border-box; /* 패딩 오버플로우 방지 */
+}
+
+.top-desserts li a .rank-num {
+    text-align: left;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.top-desserts li a .dessert-name {
+    flex-grow: 1;
+    text-align: center;
+    padding-right: 28px; /* 1위~5위 랭크의 가로 너비만큼 우측 패딩을 줘서 완벽한 시각적 중앙 정렬을 이룸 */
 }
 
 .top-desserts li a:hover {
