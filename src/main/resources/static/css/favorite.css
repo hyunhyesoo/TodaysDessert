@@ -40,7 +40,7 @@
      position: absolute;
      font-size: 18px;
      right: 0;
-     margin-right: 200px;
+     margin-right: 5%; /* 고정 픽셀 대신 비율 사용 */
      margin-top: 50px;
      gap: 15px;
      cursor: pointer;
@@ -50,8 +50,8 @@
  .cardGrid {
      padding: 40px;
      display: grid;
-     grid-template-columns: repeat(3, 1fr);
-     /* 고정 3열 */
+     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+     /* 반응형 자동 채우기 */
      gap: 25px;
      justify-items: center;
  }

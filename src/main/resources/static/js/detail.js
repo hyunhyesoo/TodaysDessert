@@ -1,4 +1,16 @@
 $(document).ready(function () {
+    // 0. URL 파라미터로 동적 데이터 렌더링 (더미 DB 역할)
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlName = urlParams.get('name');
+    var urlImg = urlParams.get('img');
+    
+    if (urlName && urlImg) {
+      $(".productName").text(urlName);
+      $(".productImage").attr("src", urlImg);
+      // 부가 설명은 임의로 작성
+      $(".productDetail").text(urlName + "의 달콤하고 부드러운 맛을 즐겨보세요!");
+    }
+
     // 1. 좋아요 기능
     $('.likeBtn').click(function () {
       let countSpan = $(this).find('.likeCount');
@@ -7,7 +19,7 @@ $(document).ready(function () {
     });
 
     // 2. 즐겨찾기 기능 (별 아이콘 토글, 페이지 이동하지 않음)
-    const favoriteStateKey = "is_favorite_glazed_donut";
+    const favoriteStateKey = "is_favorite_" + ($(".productName").text() || "default");
     const isFavorite = sessionStorage.getItem(favoriteStateKey) === "true";
     
     // 초기 별 아이콘 설정
@@ -29,8 +41,8 @@ $(document).ready(function () {
         // 즐겨찾기 등록
         sessionStorage.setItem(favoriteStateKey, "true");
         const tempData = {
-          name: "글레이즈드 도넛",
-          img: "imgs/글레이즈드도넛.png"
+          name: $(".productName").text(),
+          img: $(".productImage").attr("src")
         };
         sessionStorage.setItem("tempFavorite", JSON.stringify(tempData));
         $(this).text("star");
@@ -143,4 +155,31 @@ $(document).ready(function () {
 
     // 초기 댓글 로딩
     loadComments();
+
+    // 4. 최근 본 상품 로컬스토리지 저장
+    function saveRecentView() {
+      const productName = $(".productName").text();
+      const productImg = $(".productImage").attr("src");
+      const url = window.location.href; // 쿼리 파라미터가 포함된 전체 URL 저장
+
+      let recentViews = JSON.parse(localStorage.getItem('recentViews') || '[]');
+      
+      // 중복 제거
+      recentViews = recentViews.filter(item => item.name !== productName);
+      
+      // 맨 앞에 추가
+      recentViews.unshift({
+        name: productName,
+        img: productImg,
+        url: url
+      });
+      
+      // 최대 3개까지만 저장
+      if (recentViews.length > 3) {
+        recentViews.pop();
+      }
+      
+      localStorage.setItem('recentViews', JSON.stringify(recentViews));
+    }
+    saveRecentView();
 });

@@ -18,11 +18,11 @@ body {
         }
 
         .categoryGrid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 30px;
-            justify-items: center;
-            max-width: 900px;
+            max-width: 100%;
             margin: 0 auto;
         }
 
@@ -70,7 +70,7 @@ body {
         /* 반응형 웹 설정 */
         @media (min-width: 768px) and (max-width: 1024px) {
             .categoryGrid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
                 gap: 24px;
             }
 

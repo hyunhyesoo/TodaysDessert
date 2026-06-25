@@ -1,69 +1,90 @@
-header {
-  display: flex;
-  flex-direction: column;
-  /* 세로 정렬 */
-  align-items: center;
-  /* 가로 중앙 */
-  justify-content: center;
-  /* 세로 중앙 */
-  padding: 20px;
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
+/* 기본 여백 초기화 (모든 페이지 공통 적용) */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
-header img.logo {
-  width: 320px;
-  cursor: pointer;
-  pointer-events: auto;
-}
-
-/* 네비게이션 바 */
+/* 통합 네비게이션 바 */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 5px 40px; /* 세로 두께를 축소하기 위해 패딩 조절 */
   background-color: #ffdede;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+
+.navLeft, .navRight {
+  display: contents; /* HTML 구조 변경 없이 navbar의 직접적인 flex 자식으로 만듦 */
+}
+
+.navLeft > a {
+  order: 1;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navLeft img.logo {
+  width: 320px; /* 로고 크기를 320px 정도로 축소 */
+  display: block;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.searchBar {
+  order: 2;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* 좌측 로고 영역(360px) 및 우측 메뉴 영역(470px)과의 겹침을 방지하기 위한 반응형 너비 설정 */
+  width: calc(100% - 920px);
+  max-width: 780px; /* 검색창 길이를 약간 더 늘림 */
+  min-width: 320px;
+  margin: 0;
+  z-index: 10;
+}
+
+.searchBar input {
+  width: 100%;
+  height: 68px; /* 세로 두께를 60px에서 68px로 약간 더 늘림 */
+  padding: 12px 35px;
+  border-radius: 40px; /* 늘어난 높이에 맞춰 라운드 조정 */
+  border: 1px solid #ccc;
+  font-size: 22px; /* 글씨 크기를 20px에서 22px로 약간 더 늘림 */
+  box-sizing: border-box;
 }
 
 .navMenu {
+  order: 3;
   display: flex;
-  gap: 40px;
+  gap: 35px; /* 모든 메뉴/아이콘 간격을 동일하게 맞춤 */
   list-style: none;
-  margin-left: 20px;
+  margin: 0 0 0 auto; /* 남은 빈 여백을 모두 왼쪽에 밀어넣어 우측 메뉴들을 오른쪽 끝으로 정렬! */
   padding: 0;
+  flex-shrink: 0;
 }
 
 .navMenu li a {
   text-decoration: none;
   color: #000;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 22px; 
 }
 
-.searchBar {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.searchBar input {
-  width: 100%;
-  max-width: 800px;
-  /* 너비 키움 */
-  height: 40px;
-  /* 높이 키움 */
-  padding: 10px 20px;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-}
-
-/* 네비 아이콘들 (필터, 유저, 메뉴) */
+/* 네비 아이콘들 (필터, 유저) */
 .navIcons {
+  order: 4;
   display: flex;
-  gap: 40px;
-  margin: 0;
+  gap: 35px; /* 텍스트 메뉴의 gap과 동일하게 설정 */
+  margin: 0 0 0 35px; /* 텍스트 메뉴와 첫 번째 아이콘 사이의 간격도 35px로 완벽히 동일하게 맞춤 */
+  flex-shrink: 0;
+  align-items: center;
 }
 
 .iconBtn {
@@ -103,25 +124,20 @@ header img.logo {
 }
 
 @media (max-width: 767px) {
-  header {
-    padding: 15px 10px;
-  }
-
-  header img.logo {
-    width: 60px;
-    margin-right: 0;
-  }
-
-  header h1 {
-    font-size: 24px;
-    text-align: center;
-  }
-
   .navbar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+
+  .navLeft {
+    flex-direction: column;
     gap: 10px;
-    padding: 10px 20px;
+  }
+
+  .navLeft img.logo {
+    width: 150px;
   }
 
   .navMenu {
@@ -137,6 +153,11 @@ header img.logo {
   .searchBar {
     width: 100%;
     justify-content: center;
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin: 10px 0;
   }
 
   .searchBar input {
@@ -147,8 +168,14 @@ header img.logo {
     padding: 8px 16px;
   }
 
+  .navRight {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+  }
+
   .navIcons {
-    justify-content: flex-end;
+    justify-content: center;
     width: 100%;
     gap: 20px;
   }
@@ -159,25 +186,20 @@ header img.logo {
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  header {
-    padding: 18px 20px;
-  }
-
-  header img.logo {
-    width: 70px;
-    margin-right: 8px;
-  }
-
-  header h1 {
-    font-size: 30px;
-    text-align: center;
-  }
-
   .navbar {
     flex-direction: column;
     align-items: stretch;
     padding: 15px 30px;
+    gap: 20px;
+  }
+
+  .navLeft {
+    flex-direction: column;
     gap: 15px;
+  }
+
+  .navLeft img.logo {
+    width: 180px;
   }
 
   .navMenu {
@@ -195,6 +217,11 @@ header img.logo {
   .searchBar {
     justify-content: center;
     width: 100%;
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin: 10px 0;
   }
 
   .searchBar input {
@@ -205,6 +232,12 @@ header img.logo {
     padding: 10px 18px;
   }
 
+  .navRight {
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+  }
+
   .navIcons {
     justify-content: center;
     gap: 30px;
@@ -213,5 +246,111 @@ header img.logo {
 
   .iconBtn {
     font-size: 32px;
+  }
+}
+
+/* --- 3단 레이아웃 (사이드바 + 메인) --- */
+.page-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 3%; /* 양옆 여백을 화면 끝쪽으로 */
+  gap: 40px;
+  max-width: 100%; /* 기존 1600px 제한 해제 */
+  margin: 0 auto;
+}
+
+.left-sidebar {
+  flex: 0 0 200px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+.right-sidebar {
+  flex: 0 0 200px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+.content-area {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.sidebar-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ffdede;
+  padding-bottom: 10px;
+}
+
+.filter-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filter-list li {
+  margin-bottom: 10px;
+}
+
+.filter-list label {
+  cursor: pointer;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.recent-views-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.empty-msg {
+  color: #999;
+  font-size: 14px;
+  text-align: center;
+}
+
+.recent-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  text-align: center;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+.recent-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.recent-item img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 1024px) {
+  .page-wrapper {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .left-sidebar, .right-sidebar {
+    width: 100%;
+    flex: none;
   }
 }

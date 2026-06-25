@@ -37,7 +37,7 @@ body {
     background-color: rgba(255, 255, 255, 0.95);
     padding: 40px 30px;
     border-radius: 20px;
-    max-width: 900px; /* 피그마에 최적화된 너비 */
+    max-width: 95%; /* 기존 900px에서 변경 */
     width: 100%;
     text-align: center;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);

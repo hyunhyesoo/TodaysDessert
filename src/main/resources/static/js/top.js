@@ -18,4 +18,15 @@
       e.preventDefault();
       window.location.href = "/favorite";
     });
+
+    $(".searchInput").keypress(function (e) {
+      if (e.which == 13) { // Enter key
+        e.preventDefault();
+        var query = $(this).val();
+        if (query) {
+          // Redirect to search results page with query parameter
+          window.location.href = "/search?query=" + encodeURIComponent(query);
+        }
+      }
+    });
   });

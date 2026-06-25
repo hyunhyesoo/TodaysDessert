@@ -13,26 +13,25 @@
 </head>
 
 <body>
-  <!-- 헤더 -->
-  <header>
-    <a href="/">
-      <img src="imgs/logo.png" alt="로고" class="logo" />
-    </a>
-  </header>
-
-  <!-- 네비게이션 바 -->
+  <!-- 통합 네비게이션 바 -->
   <nav class="navbar">
-    <ul class="navMenu">
-      <li><a href="/intro" class="goIntro">홈페이지소개</a></li>
-      <li><a href="/category" class="goCategory">카테고리</a></li>
-    </ul>
-    <div class="searchBar">
-      <input type="text" placeholder="검색어 입력" class="searchInput" />
+    <div class="navLeft">
+      <a href="/">
+        <img src="imgs/logo.png" alt="로고" class="logo" />
+      </a>
+      <ul class="navMenu">
+        <li><a href="/intro" class="goIntro">홈페이지소개</a></li>
+        <li><a href="/category" class="goCategory">카테고리</a></li>
+      </ul>
     </div>
-    <div class="navIcons">
-      <button class="iconBtn searchBtn" aria-label="필터"><span class="tuneIcon"></span></button>
-      <button class="iconBtn userBtn" aria-label="사용자"><span class="userIcon"></span></button>
-      <button class="iconBtn goCategory" aria-label="메뉴"><span class="menuIcon"></span></button>
+    <div class="navRight">
+      <div class="searchBar">
+        <input type="text" placeholder="검색어 입력" class="searchInput" />
+      </div>
+      <div class="navIcons">
+        <button class="iconBtn searchBtn" aria-label="필터"><span class="tuneIcon"></span></button>
+        <button class="iconBtn userBtn" aria-label="사용자"><span class="userIcon"></span></button>
+      </div>
     </div>
   </nav>
 

@@ -2,7 +2,7 @@
     padding: 20px;
     font-family: 'Noto Sans KR', sans-serif;
     background-color: #fff;
-    max-width: 800px;
+    max-width: 800px; /* 기존 95%에서 원복하여 폼 가독성 향상 */
     margin: 0 auto;
     /* 가운데 정렬 */
 }
