@@ -1,15 +1,6 @@
 $(document).ready(function () {
-    // 0. URL 파라미터로 동적 데이터 렌더링 (더미 DB 역할)
-    var urlParams = new URLSearchParams(window.location.search);
-    var urlName = urlParams.get('name');
-    var urlImg = urlParams.get('img');
-    
-    if (urlName && urlImg) {
-      $(".productName").text(urlName);
-      $(".productImage").attr("src", urlImg);
-      // 부가 설명은 임의로 작성
-      $(".productDetail").text(urlName + "의 달콤하고 부드러운 맛을 즐겨보세요!");
-    }
+    // 데이터 렌더링은 타임리프 서버 사이드 로직으로 완전히 이관되어 기존 JS 코드를 삭제했습니다.
+
 
     // 1. 좋아요 기능
     $('.likeBtn').click(function () {
@@ -18,9 +9,25 @@ $(document).ready(function () {
       countSpan.text(currentCount + 1);
     });
 
-    // 2. 즐겨찾기 기능 (별 아이콘 토글, 페이지 이동하지 않음)
-    const favoriteStateKey = "is_favorite_" + ($(".productName").text() || "default");
-    const isFavorite = sessionStorage.getItem(favoriteStateKey) === "true";
+    // 2. 즐겨찾기 기능 (별 아이콘 토글, 전역 배열 연동)
+    // 초기 로컬 스토리지 데이터가 없으면 기본값 세팅
+    let favListStr = localStorage.getItem("favoritesList");
+    if (!favListStr) {
+        const initialFavs = [
+            {name: "글레이즈드 도넛", img: "imgs/글레이즈드도넛.png"},
+            {name: "초코코팅 도넛", img: "imgs/초코도넛.png"},
+            {name: "카스테라 도넛", img: "imgs/카스테라도넛.png"},
+            {name: "레몬필링 도넛", img: "imgs/레몬필링도넛.png"}
+        ];
+        localStorage.setItem("favoritesList", JSON.stringify(initialFavs));
+        favListStr = JSON.stringify(initialFavs);
+    }
+    
+    let favoritesList = JSON.parse(favListStr);
+    const currentProductName = $(".productName").text().trim();
+    
+    // 현재 상품이 즐겨찾기 배열에 있는지 확인
+    const isFavorite = favoritesList.some(item => item.name === currentProductName);
     
     // 초기 별 아이콘 설정
     if (isFavorite) {
@@ -30,21 +37,22 @@ $(document).ready(function () {
     }
 
     $("#favoriteBtn").click(function () {
-      const currentlyFavorite = sessionStorage.getItem(favoriteStateKey) === "true";
+      favoritesList = JSON.parse(localStorage.getItem("favoritesList") || "[]");
+      const currentlyFavorite = favoritesList.some(item => item.name === currentProductName);
+      
       if (currentlyFavorite) {
-        // 즐겨찾기 해제
-        sessionStorage.setItem(favoriteStateKey, "false");
-        sessionStorage.removeItem("tempFavorite");
+        // 즐겨찾기 해제 (배열에서 제거)
+        favoritesList = favoritesList.filter(item => item.name !== currentProductName);
+        localStorage.setItem("favoritesList", JSON.stringify(favoritesList));
         $(this).text("star_border");
         alert("먹고 싶어요 목록에서 해제되었습니다.");
       } else {
-        // 즐겨찾기 등록
-        sessionStorage.setItem(favoriteStateKey, "true");
-        const tempData = {
-          name: $(".productName").text(),
+        // 즐겨찾기 등록 (배열에 추가)
+        favoritesList.push({
+          name: currentProductName,
           img: $(".productImage").attr("src")
-        };
-        sessionStorage.setItem("tempFavorite", JSON.stringify(tempData));
+        });
+        localStorage.setItem("favoritesList", JSON.stringify(favoritesList));
         $(this).text("star");
         alert("먹고 싶어요 목록에 추가되었습니다! 상단 메뉴바의 마이페이지(사용자 아이콘)에서 확인하실 수 있습니다.");
       }

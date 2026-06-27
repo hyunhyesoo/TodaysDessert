@@ -36,6 +36,8 @@ body {
     .productImage {
       width: 350px;
       border-radius: 15px;
+      object-fit: contain;
+      background-color: transparent;
     }
 
     .productRight {

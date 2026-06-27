@@ -50,7 +50,7 @@ body {
 
 .card {
     width: 100%;
-    max-width: 300px;
+    max-width: 220px;
     text-align: center;
     cursor: pointer;
     pointer-events: auto;
@@ -58,11 +58,11 @@ body {
 
 .card img {
     width: 100%;
-    height: 260px;
-    object-fit: cover;
+    height: 180px;
+    object-fit: contain;
     border-radius: 10px;
     border: 1px solid #ddd;
-    background-color: #fafafa;
+    background-color: transparent;
 }
 
 .card h3 {

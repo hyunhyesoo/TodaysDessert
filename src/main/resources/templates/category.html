@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8" />
@@ -7,20 +7,20 @@
     <title>오늘의 디저트</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="css/top.css">
-    <link rel="stylesheet" href="css/category.css">
+    <link rel="stylesheet" th:href="@{/css/top.css}">
+    <link rel="stylesheet" th:href="@{/css/category.css}">
 </head>
 
 <body>
     <!-- 통합 네비게이션 바 -->
     <nav class="navbar">
         <div class="navLeft">
-            <a href="/">
-                <img src="imgs/logo.png" alt="로고" class="logo" />
+            <a th:href="@{/}">
+                <img th:src="@{/imgs/logo.png}" alt="로고" class="logo" />
             </a>
             <ul class="navMenu">
-                <li><a href="/intro" class="goIntro">홈페이지소개</a></li>
-                <li><a href="/category" class="goCategory">카테고리</a></li>
+                <li><a th:href="@{/intro}" class="goIntro">홈페이지소개</a></li>
+                <li><a th:href="@{/category}" class="goCategory">카테고리</a></li>
             </ul>
         </div>
         <div class="navRight">
@@ -51,11 +51,9 @@
 
             <h3 class="sidebar-title" style="margin-top: 30px;">인기 디저트 TOP5</h3>
             <ul class="top-desserts-sidebar">
-                <li><a href="#">1위 딸기생크림케이크</a></li>
-                <li><a href="#">2위 자몽에이드</a></li>
-                <li><a href="#">3위 소금빵</a></li>
-                <li><a href="#">4위 복숭아타르트</a></li>
-                <li><a href="#">5위 바나나누텔라와플</a></li>
+                <li th:each="dessert, iterStat : ${topDesserts}">
+                    <a th:href="@{/detail(name=${dessert.name})}" th:text="${iterStat.count} + '위 ' + ${dessert.name}">1위 딸기생크림케이크</a>
+                </li>
             </ul>
         </aside>
 
@@ -66,37 +64,37 @@
                 <div class="categoryGrid">
                     <div class="categoryCard" data-id="101" data-name="케이크" data-img="imgs/케이크.png">
                         <div class="categoryIcon">
-                            <img src="imgs/케이크.png" alt="케이크 아이콘">
+                            <img th:src="@{/imgs/케이크.png}" alt="케이크 아이콘">
                         </div>
                         <h3>케이크</h3>
                     </div>
                     <div class="categoryCard" data-id="102" data-name="베이글&샌드위치" data-img="imgs/베이글.png">
                         <div class="categoryIcon">
-                            <img src="imgs/베이글.png" alt="베이글&샌드위치 아이콘">
+                            <img th:src="@{/imgs/베이글.png}" alt="베이글&샌드위치 아이콘">
                         </div>
                         <h3>베이글&샌드위치</h3>
                     </div>
                     <div class="categoryCard" data-id="103" data-name="베이커리" data-img="imgs/베이커리.png">
                         <div class="categoryIcon">
-                            <img src="imgs/베이커리.png" alt="베이커리 아이콘">
+                            <img th:src="@{/imgs/베이커리.png}" alt="베이커리 아이콘">
                         </div>
                         <h3>베이커리</h3>
                     </div>
                     <div class="categoryCard" data-id="104" data-name="빙수&파르페" data-img="imgs/빙수.png">
                         <div class="categoryIcon">
-                            <img src="imgs/빙수.png" alt="빙수&파르페 아이콘">
+                            <img th:src="@{/imgs/빙수.png}" alt="빙수&파르페 아이콘">
                         </div>
                         <h3>빙수&파르페</h3>
                     </div>
                     <div class="categoryCard" data-id="105" data-name="아이스크림" data-img="imgs/아이스크림.png">
                         <div class="categoryIcon">
-                            <img src="imgs/아이스크림.png" alt="아이스크림 아이콘">
+                            <img th:src="@{/imgs/아이스크림.png}" alt="아이스크림 아이콘">
                         </div>
                         <h3>아이스크림</h3>
                     </div>
                     <div class="categoryCard" data-id="106" data-name="음료" data-img="imgs/음료.png">
                         <div class="categoryIcon">
-                            <img src="imgs/음료.png" alt="음료 아이콘">
+                            <img th:src="@{/imgs/음료.png}" alt="음료 아이콘">
                         </div>
                         <h3>음료</h3>
                     </div>
@@ -114,8 +112,8 @@
         </aside>
 
     </div>
-    <script src="js/top.js"></script>
-    <script src="js/category.js"></script>
+    <script th:src="@{/js/top.js}"></script>
+    <script th:src="@{/js/category.js}"></script>
 </body>
 
 </html>

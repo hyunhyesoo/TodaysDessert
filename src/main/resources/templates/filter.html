@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -7,20 +7,20 @@
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="css/top.css">
-    <link rel="stylesheet" href="css/filter.css">
+    <link rel="stylesheet" th:href="@{/css/top.css}">
+    <link rel="stylesheet" th:href="@{/css/filter.css}">
 </head>
 
 <body>
     <!-- 통합 네비게이션 바 -->
     <nav class="navbar">
         <div class="navLeft">
-            <a href="/">
-                <img src="imgs/logo.png" alt="로고" class="logo" />
+            <a th:href="@{/}">
+                <img th:src="@{/imgs/logo.png}" alt="로고" class="logo" />
             </a>
             <ul class="navMenu">
-                <li><a href="/intro" class="goIntro">홈페이지소개</a></li>
-                <li><a href="/category" class="goCategory">카테고리</a></li>
+                <li><a th:href="@{/intro}" class="goIntro">홈페이지소개</a></li>
+                <li><a th:href="@{/category}" class="goCategory">카테고리</a></li>
             </ul>
         </div>
         <div class="navRight">
@@ -51,11 +51,9 @@
 
       <h3 class="sidebar-title" style="margin-top: 30px;">인기 디저트 TOP5</h3>
       <ul class="top-desserts-sidebar">
-        <li><a href="#">1위 딸기생크림케이크</a></li>
-        <li><a href="#">2위 자몽에이드</a></li>
-        <li><a href="#">3위 소금빵</a></li>
-        <li><a href="#">4위 복숭아타르트</a></li>
-        <li><a href="#">5위 바나나누텔라와플</a></li>
+        <li th:each="dessert, iterStat : ${topDesserts}">
+          <a th:href="@{/detail(name=${dessert.name})}" th:text="${iterStat.count} + '위 ' + ${dessert.name}">1위 딸기생크림케이크</a>
+        </li>
       </ul>
     </aside>
 
@@ -129,8 +127,8 @@
     </aside>
 
   </div>
-    <script src="js/top.js"></script>
-    <script src="js/filter.js"></script>
+    <script th:src="@{/js/top.js}"></script>
+    <script th:src="@{/js/filter.js}"></script>
 </body>
 
 </html>
