@@ -2,6 +2,8 @@ $(document).ready(function () {
   // 1. URL 검색어 연동
   var urlParams = new URLSearchParams(window.location.search);
   var query = urlParams.get('query') || '';
+  var filters = urlParams.get('filters') || '';
+  var excludes = urlParams.get('excludes') || '';
   
   if (query) {
     $("#pageTitle").text("'" + query + "' 검색 결과");
@@ -11,6 +13,16 @@ $(document).ready(function () {
         $(this).prop('checked', true);
       }
     });
+  } else if (filters || excludes) {
+    let titleStr = "";
+    if (filters && excludes) {
+      titleStr = "'" + filters + "' 검색 결과 ('" + excludes + "' 제외)";
+    } else if (filters) {
+      titleStr = "'" + filters + "' 검색 결과";
+    } else if (excludes) {
+      titleStr = "'" + excludes + "' 제외 검색 결과";
+    }
+    $("#pageTitle").text(titleStr);
   } else {
     $("#pageTitle").text("전체 디저트");
   }

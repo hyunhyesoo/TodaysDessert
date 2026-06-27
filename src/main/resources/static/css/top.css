@@ -28,7 +28,7 @@ body {
 }
 
 .navLeft img.logo {
-  width: 320px; /* 로고 크기를 320px 정도로 축소 */
+  width: 220px; /* 로고 크기를 줄여 네비바 높이 감소 */
   display: block;
   margin: 0;
   padding: 0;
@@ -52,11 +52,11 @@ body {
 
 .searchBar input {
   width: 100%;
-  height: 76px; /* 세로 높이를 68px에서 76px로 더 늘려 꽉 차 보이도록 조정 */
-  padding: 15px 40px;
-  border-radius: 45px; /* 늘어난 높이에 맞춰 라운드 비율 조정 */
+  height: 50px;
+  padding: 10px 25px;
+  border-radius: 25px;
   border: 1px solid #ccc;
-  font-size: 24px; /* 글씨 크기를 22px에서 24px로 상향 */
+  font-size: 18px;
   box-sizing: border-box;
 }
 
@@ -74,7 +74,7 @@ body {
   text-decoration: none;
   color: #000;
   font-weight: bold;
-  font-size: 22px; 
+  font-size: 18px; 
 }
 
 /* 네비 아이콘들 (필터, 유저) */
@@ -91,7 +91,7 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 35px;
+  font-size: 28px;
   padding: 4px;
   color: #333; /* 피그마처럼 아이콘 색상을 어둡게 설정 */
 }
@@ -100,7 +100,7 @@ body {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 35px;
+  font-size: 28px;
   line-height: 1;
   letter-spacing: normal;
   text-transform: none;

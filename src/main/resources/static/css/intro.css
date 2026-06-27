@@ -23,10 +23,10 @@ body {
     .introSection::before {
       content: "";
       position: absolute;
-      top: 40px;
+      top: 100px;
       left: 0;
       right: 0;
-      bottom: 40px;
+      bottom: 0px;
       background: url('../imgs/소개글.png') no-repeat center center;
       background-size: contain;
       opacity: 0.3;
