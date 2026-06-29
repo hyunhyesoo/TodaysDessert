@@ -11,7 +11,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 50px; /* 구역 사이 여백을 50px로 넓혀 더 시원하고 여유롭게 배치 */
     padding: 30px 20px;
-    max-width: 1500px; /* 최대 가로폭을 1500px로 상향하여 피그마 비례 유도 */
+    max-width: 1650px; /* 가로폭을 살짝 더 넓혀 좌우 여백을 조금 줄임 (이전 1500px) */
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
