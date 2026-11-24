@@ -14,10 +14,10 @@ $(document).ready(function () {
     let favListStr = localStorage.getItem("favoritesList");
     if (!favListStr) {
         const initialFavs = [
-            {name: "글레이즈드 도넛", img: "imgs/글레이즈드도넛.png"},
-            {name: "초코코팅 도넛", img: "imgs/초코도넛.png"},
-            {name: "카스테라 도넛", img: "imgs/카스테라도넛.png"},
-            {name: "레몬필링 도넛", img: "imgs/레몬필링도넛.png"}
+            {name: "글레이즈드 도넛", img: "imgs/glazed_donut.png"},
+            {name: "초코코팅 도넛", img: "imgs/choco_donut.png"},
+            {name: "카스테라 도넛", img: "imgs/castella_donut.png"},
+            {name: "레몬필링 도넛", img: "imgs/lemon_donut.png"}
         ];
         localStorage.setItem("favoritesList", JSON.stringify(initialFavs));
         favListStr = JSON.stringify(initialFavs);

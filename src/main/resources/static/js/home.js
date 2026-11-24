@@ -8,6 +8,6 @@ $(document).ready(function () {
 
   // 오늘의 추천 디저트 클릭 시 해당 디저트의 detail.html로 이동 (동적 파라미터 전달)
   $(".recommended").click(function () {
-    window.location.href = "/detail?name=" + encodeURIComponent("초코칩 쿠키") + "&img=" + encodeURIComponent("imgs/추천디저트.png");
+    window.location.href = "/detail?name=" + encodeURIComponent("초코칩 쿠키") + "&img=" + encodeURIComponent("imgs/recommended_dessert.png");
   });
 });

@@ -27,7 +27,7 @@ body {
       left: 0;
       right: 0;
       bottom: 0px;
-      background: url('../imgs/소개글.png') no-repeat center center;
+      background: url('../imgs/intro_bg.png') no-repeat center center;
       background-size: contain;
       opacity: 0.3;
       z-index: 0;

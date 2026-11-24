@@ -56,7 +56,7 @@ public class ViewController {
                 fallbackCategory = "베이글&샌드위치";
             }
 
-            dessert = new Dessert(99L, fallbackName, "imgs/추천디저트.png", 5500, 350, "알 수 없음", fallbackCategory);
+            dessert = new Dessert(99L, fallbackName, "imgs/recommended_dessert.png", 5500, 350, "알 수 없음", fallbackCategory);
         }
         
         model.addAttribute("dessert", dessert);

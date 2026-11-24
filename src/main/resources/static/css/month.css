@@ -24,7 +24,7 @@ body {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: url('../imgs/이달의테마.png') no-repeat center center;
+    background: url('../imgs/theme_banner.png') no-repeat center center;
     background-size: cover;
     /* 블러 제거하여 사진의 쨍한 색감과 디테일 살림 */
     z-index: 1;

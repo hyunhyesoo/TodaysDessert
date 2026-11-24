@@ -28,7 +28,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-image: url('../imgs/이달의테마.png');
+    background-image: url('../imgs/theme_banner.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -145,7 +145,7 @@ body {
     color: #fff;
     box-sizing: border-box;
     border-radius: 0; /* 피그마처럼 직각 모서리로 변경 (요청사항) */
-    background-image: url('../imgs/추천디저트.png');
+    background-image: url('../imgs/recommended_dessert.png');
     background-size: cover;
     background-position: center; /* 이미지 중앙 정렬 */
     background-repeat: no-repeat;
